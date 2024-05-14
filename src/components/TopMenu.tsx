@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default async function TopMenu() {
     
     return (
-        <div className={"fixed top-0 left-0 right-0 bg-teal-500 h-24 z-30 flex gap-5 flex-row-reverse"}>
+        <div className={"fixed top-0 left-0 right-0 bg-custom-green h-24 z-30 flex gap-5 flex-row-reverse"}>
             <div className='flex flex-row absolute left-0 h-full '>
                 {/* <Link href="/">
                     <Image src={'/img/weblogo.png'} className={styles.logoimg} alt='logo'
