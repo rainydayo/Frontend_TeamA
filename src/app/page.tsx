@@ -1,11 +1,34 @@
-import Image from "next/image";
+'use client'
+
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <main>
+  const [currentImage, setCurrentImage] = useState('/img/promotion_big_1.png');
+  
+  useEffect(() => {
+    const images = ['/img/promotion_big_1.png', '/img/promotion_small_1.png', '/img/promotion_small_2.png'];
+    let index = 0;
 
-      <h1 className="p-16">Hello World!</h1>
-      
+    const intervalId = setInterval(() => {
+      index = (index + 1) % images.length;
+      setCurrentImage(images[index]);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <main className="p-16">
+      <div className="grid grid-cols-4 gap-4">
+        <div className="col-span-1">
+            <img className="w-full h-[30vh] object-cover mb-2" src="/img/promotion_small_1.png" alt="Small Image 1" />
+            <img className="w-full h-[30vh] object-cover" src="/img/promotion_small_2.png" alt="Small Image 2" />
+        </div>
+        <div className="col-span-3">
+            <img className="w-full h-[60vh] object-cover" src={currentImage} alt="Large Image" />
+        </div>
+      </div>
     </main>
   );
 }
+

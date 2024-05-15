@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         'custom-green': '#00BF7A',
         'custom-light-green':'70E9BE',
+        'custom-bg':'F5F5F5',
       },
     },
   },
