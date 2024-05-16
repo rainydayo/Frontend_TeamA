@@ -1,6 +1,7 @@
 'use client'
-
 import React, { useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import './SlidingTransition.css';
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState('/img/promotion_big_1.png');
@@ -24,8 +25,12 @@ export default function Home() {
             <img className="w-full h-[30vh] object-cover mb-2" src="/img/promotion_small_1.png" alt="Small Image 1" />
             <img className="w-full h-[30vh] object-cover" src="/img/promotion_small_2.png" alt="Small Image 2" />
         </div>
-        <div className="col-span-3">
-            <img className="w-full h-[60vh] object-cover" src={currentImage} alt="Large Image" />
+        <div className="col-span-3 relative h-[61vh] overflow-hidden">
+            <TransitionGroup>
+                <CSSTransition key={currentImage} timeout={500} classNames="slide">
+                    <img className="w-full h-[61vh] object-cover absolute" src={currentImage} alt="Large Image" />
+                </CSSTransition>
+            </TransitionGroup>
         </div>
       </div>
     </main>
