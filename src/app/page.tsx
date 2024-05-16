@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './SlidingTransition.css';
+import Category from '@/components/Category';
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState('/img/promotion_big_1.png');
@@ -33,6 +34,7 @@ export default function Home() {
             </TransitionGroup>
         </div>
       </div>
+      <Category></Category>
     </main>
   );
 }
